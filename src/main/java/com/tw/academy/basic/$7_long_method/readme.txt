@@ -12,3 +12,4 @@
 6. 将打印头部抽取为公共方法getReceiptHeader() Line 27  -->  52~56
 7. 将每个Order Item的信息打印抽取为公共方法getOrderItemContent()
 8. 将总共要交的税打印 抽取为公共方法 getReceiptTotSalesTx()
+8. 将总共的价格打印 抽取为公共方法 getTotalAmount()
