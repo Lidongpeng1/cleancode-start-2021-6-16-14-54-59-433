@@ -29,13 +29,16 @@ public class OrderReceipt {
         double tot = 0d;
         for (LineItem lineItem : order.getLineItems()) {
             getOrderItemContent(orderReceiptContent, lineItem);
-            double salesTax = calculateOrderItemSalesTax(lineItem);
-            totSalesTx += salesTax;
-            tot += lineItem.totalAmount() + salesTax;
+            totSalesTx += calculateOrderItemSalesTax(lineItem);
+            tot += calculateOrderItemAmount(lineItem);
         }
         getReceiptTotSalesTx(orderReceiptContent, totSalesTx);
         getTotalAmount(orderReceiptContent, tot);
         return orderReceiptContent.toString();
+    }
+
+    private double calculateOrderItemAmount(LineItem lineItem) {
+        return lineItem.totalAmount() + calculateOrderItemSalesTax(lineItem);
     }
 
     private double calculateOrderItemSalesTax(LineItem lineItem) {
