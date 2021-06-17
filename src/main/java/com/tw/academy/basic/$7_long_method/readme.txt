@@ -14,3 +14,4 @@
 8. 将总共要交的税打印 抽取为公共方法 getReceiptTotSalesTx()
 9. 将总共的价格打印 抽取为公共方法 getTotalAmount()
 10. 将 \t \n等字符抽取为公共字符变量
+11. 将每个订单item的税值计算抽取为公共方法lineItem.totalAmount() * TAX_RATE; -> calculateOrderItemSalesTax
