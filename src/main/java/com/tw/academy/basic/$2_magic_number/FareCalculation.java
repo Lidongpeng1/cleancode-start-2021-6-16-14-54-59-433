@@ -4,8 +4,8 @@ public class FareCalculation {
     static final int lowPriceRangelimit = 100;
     static final int middlePrice = 150;
     static final int highPriceRangeLimit = 400;
-    static final float lowDiscount = 0.8f;
-    static final float highDiscount = 0.5f;
+    static final double lowDiscount = 0.8;
+    static final double highDiscount = 0.5;
 
     public double calculate(double originalPrice, double cumulativeExpensesThisMonth) {
         if (cumulativeExpensesThisMonth >= lowPriceRangelimit && cumulativeExpensesThisMonth < middlePrice) {
