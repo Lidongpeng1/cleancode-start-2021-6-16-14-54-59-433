@@ -10,4 +10,5 @@
 5. 输出内容String命名不规范 line 24
     从output rename为 orderReceiptContent
 6. 将打印头部抽取为公共方法getReceiptHeader() Line 27  -->  52~56
-6. 将每个Order Item的信息打印抽取为公共方法getOrderItemContent()
+7. 将每个Order Item的信息打印抽取为公共方法getOrderItemContent()
+8. 将总共要交的税打印 抽取为公共方法 getReceiptTotSalesTx()

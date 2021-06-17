@@ -31,9 +31,13 @@ public class OrderReceipt {
             totSalesTx += salesTax;
             tot += lineItem.totalAmount() + salesTax;
         }
-        orderReceiptContent.append(SALES_TAX_STRING).append('\t').append(totSalesTx);
+        getReceiptTotSalesTx(orderReceiptContent, totSalesTx);
         orderReceiptContent.append(TOTAL_AMOUNT_STRING).append('\t').append(tot);
         return orderReceiptContent.toString();
+    }
+
+    private StringBuilder getReceiptTotSalesTx(StringBuilder orderReceiptContent, double totSalesTx) {
+        return orderReceiptContent.append(SALES_TAX_STRING).append('\t').append(totSalesTx);
     }
 
     private void getOrderItemContent(StringBuilder orderReceiptContent, LineItem lineItem) {
