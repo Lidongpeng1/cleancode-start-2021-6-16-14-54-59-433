@@ -21,14 +21,26 @@ public class Order {
     private String buyerPhoneNumber;
     private String buyerAddress;
 
+    public void setBuyerName(String buyerName) {
+        this.buyerName = buyerName;
+    }
+
+    public void setBuyerPhoneNumber(String buyerPhoneNumber) {
+        this.buyerPhoneNumber = buyerPhoneNumber;
+    }
+
+    public void setBuyerAddress(String buyerAddress) {
+        this.buyerAddress = buyerAddress;
+    }
+
     public Order(int orderNumber, String buyerName, String buyerPhoneNumber, String buyerAddress) {
         this.orderNumber = orderNumber;
 
         this.buyer = new Buyer(buyerName,buyerPhoneNumber,buyerAddress);
 
-        this.buyerName = buyerName;
-        this.buyerPhoneNumber = buyerPhoneNumber;
-        this.buyerAddress = buyerAddress;
+        setBuyerName(buyer.getBuyerName());
+        setBuyerPhoneNumber(buyer.getBuyerPhoneNumber());
+        setBuyerAddress(buyer.getBuyerAddress());
     }
 
     public String confirm(){
