@@ -25,6 +25,11 @@ public class OrderReceipt {
     public String printReceipt() {
         StringBuilder orderReceiptContent = new StringBuilder();
         getReceiptHeader(orderReceiptContent);
+        getReceiptBody(orderReceiptContent);
+        return orderReceiptContent.toString();
+    }
+
+    private void getReceiptBody(StringBuilder orderReceiptContent) {
         double totSalesTx = 0d;
         double tot = 0d;
         for (LineItem lineItem : order.getLineItems()) {
@@ -34,7 +39,6 @@ public class OrderReceipt {
         }
         getReceiptTotSalesTx(orderReceiptContent, totSalesTx);
         getTotalAmount(orderReceiptContent, tot);
-        return orderReceiptContent.toString();
     }
 
     private double calculateOrderItemAmount(LineItem lineItem) {
