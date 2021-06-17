@@ -1,13 +1,18 @@
 package com.tw.academy.basic.$2_magic_number;
 
 public class FareCalculation {
+    static final int lowPriceRangelimit = 100;
+    static final int middlePrice = 150;
+    static final int highPriceRangeLimit = 400;
+    static final float lowDiscount = 0.8f;
+    static final float highDiscount = 0.5f;
 
     public double calculate(double originalPrice, double cumulativeExpensesThisMonth) {
-        if (cumulativeExpensesThisMonth >= 100 && cumulativeExpensesThisMonth < 150) {
-            return originalPrice * 0.8;
+        if (cumulativeExpensesThisMonth >= lowPriceRangelimit && cumulativeExpensesThisMonth < middlePrice) {
+            return originalPrice * lowDiscount;
         }
-        if (cumulativeExpensesThisMonth >= 150 && cumulativeExpensesThisMonth < 400) {
-            return originalPrice * 0.5;
+        if (cumulativeExpensesThisMonth >= middlePrice && cumulativeExpensesThisMonth < highPriceRangeLimit) {
+            return originalPrice * highDiscount;
         }
         return originalPrice;
     }

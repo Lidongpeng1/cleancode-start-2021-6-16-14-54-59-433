@@ -1,16 +1,24 @@
 package com.tw.academy.basic.$4_naming.practiceOne;
 
 public class MorseCodeDecoder {
+    static final String spacetring = " ";
+    static final String nullstring = "null";
+
+
     public static String decode(String input) {
-        String[] tempValue = input.split("\\s{2,}");
-        StringBuilder res = new StringBuilder();
-        for (String s : tempValue) {
-            String [] charArray = s.split(" ");
-            for (String c: charArray) {
-                res.append(MorseCode.get(c));
+        // 匹配两个及以上空白字符
+        String moreThanTwoWhiteChart = "\\s{2,}";
+        String[] separatedInputStrings = input.split(moreThanTwoWhiteChart);
+        StringBuilder encodedStringResult = new StringBuilder();
+        for (String s : separatedInputStrings) {
+            // 匹配一个空白字符
+            String spaceChart = " ";
+            String [] waitDecondeChatItems = s.split(spaceChart);
+            for (String waitDecondeChatItem: waitDecondeChatItems) {
+                encodedStringResult.append(MorseCode.get(waitDecondeChatItem));
             }
-            res.append(" ");
+            encodedStringResult.append(spacetring);
         }
-        return res.toString().replaceAll("null", "").trim();
+        return encodedStringResult.toString().replaceAll(nullstring, "").trim();
     }
 }

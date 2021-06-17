@@ -14,4 +14,11 @@ public class Phone {
     public String getNumber() {
         return unformattedNumber.substring(6,10);
     }
+
+    public String getMobilePhoneNumber(){
+        return "(" +
+                this.getAreaCode() + ") " +
+                this.getPrefix() + "-" +
+                this.getNumber();
+    }
 }
