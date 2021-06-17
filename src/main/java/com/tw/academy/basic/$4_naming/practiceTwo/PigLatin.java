@@ -2,25 +2,27 @@ package com.tw.academy.basic.$4_naming.practiceTwo;
 
 public class PigLatin {
     //Move the first letter of each word to the end of it, then add "ay" to the end of the word. Leave punctuation marks untouched.
-    public static String pigIt(String str) {
-        String[] arr_mark={".",",","-",":",";","!","?"};
-        String[] arr = str.split(" ");
-        char c;
-        boolean flag = true;
+    private static final String DELIMETER = " ";
+    private static final String SUFFIX =  "ay";
 
-        for (int i = 0; i < arr.length; i++){
-            for (int j = 0; j < arr_mark.length; j++)
-                if(arr[i].contains(arr_mark[j]) == true)
-                    flag = false;
-
-            if (flag){
-                c = arr[i].charAt(0);
-                arr[i] = arr[i].substring(1, arr[i].length());
-                arr[i] = arr[i].replace(arr[i], arr[i] + c + "ay");
+    public static String pigIt(String sentence) {
+        String[] punctuationMarks={".",",","-",":",";","!","?"};
+        String[] strings = sentence.split(DELIMETER);
+        char startChar;
+        boolean notContainsMark = true;
+        for (int index = 0; index < strings.length; index++){
+            for (String mark : punctuationMarks)
+                if (strings[index].contains(mark)) {
+                    notContainsMark = false;
+                    break;
+                }
+            if (notContainsMark){
+                startChar = strings[index].charAt(0);
+                strings[index] = strings[index].substring(1)+startChar+SUFFIX;
             }
-            flag = true;
+            notContainsMark = true;
         }
 
-        return String.join(" ", arr);
+        return String.join(DELIMETER, strings);
     }
 }
