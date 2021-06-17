@@ -1,24 +1,26 @@
 package com.tw.academy.basic.$4_naming.practiceOne;
 
 public class MorseCodeDecoder {
-    static final String spacetring = " ";
-    static final String nullstring = "null";
 
+    private static final String LETTER_SEPARATOR = " ";
+    private static final String REGEX_TWO_AND_MORE_SPACE = "\\s{2,}";
+    private static final String NONE_MORSE_CODE_CHAR = "null";
+    private static final String WORD_SEPARATOR = " ";
 
     public static String decode(String input) {
-        // 匹配两个及以上空白字符
-        String moreThanTwoWhiteChart = "\\s{2,}";
-        String[] separatedInputStrings = input.split(moreThanTwoWhiteChart);
-        StringBuilder encodedStringResult = new StringBuilder();
-        for (String s : separatedInputStrings) {
-            // 匹配一个空白字符
-            String spaceChart = " ";
-            String [] waitDecondeChatItems = s.split(spaceChart);
-            for (String waitDecondeChatItem: waitDecondeChatItems) {
-                encodedStringResult.append(MorseCode.get(waitDecondeChatItem));
+        String[] words = input.split(REGEX_TWO_AND_MORE_SPACE);
+        StringBuilder decodedMorseCode = new StringBuilder();
+        for (String word : words) {
+            String [] singleLetters = word.split(LETTER_SEPARATOR);
+            for (String singleLetter: singleLetters) {
+                decodedMorseCode.append(MorseCode.get(singleLetter));
             }
-            encodedStringResult.append(spacetring);
+            decodedMorseCode.append(WORD_SEPARATOR);
         }
-        return encodedStringResult.toString().replaceAll(nullstring, "").trim();
+        return ignoreNoneMorseChar(decodedMorseCode);
+    }
+
+    private static String ignoreNoneMorseChar(StringBuilder decodedMorseCode) {
+        return decodedMorseCode.toString().replaceAll(NONE_MORSE_CODE_CHAR, "").trim();
     }
 }
