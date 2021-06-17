@@ -30,15 +30,15 @@ public class OrderReceipt {
     }
 
     private void getReceiptBody(StringBuilder orderReceiptContent) {
-        double totSalesTx = 0d;
-        double tot = 0d;
+        double totalSalesTax = 0d;
+        double totalAmount = 0d;
         for (LineItem lineItem : order.getLineItems()) {
             getOrderItemContent(orderReceiptContent, lineItem);
-            totSalesTx += calculateOrderItemSalesTax(lineItem);
-            tot += calculateOrderItemAmount(lineItem);
+            totalSalesTax += calculateOrderItemSalesTax(lineItem);
+            totalAmount += calculateOrderItemAmount(lineItem);
         }
-        getReceiptTotSalesTx(orderReceiptContent, totSalesTx);
-        getTotalAmount(orderReceiptContent, tot);
+        getReceiptTotSalesTx(orderReceiptContent, totalSalesTax);
+        getTotalAmount(orderReceiptContent, totalAmount);
     }
 
     private double calculateOrderItemAmount(LineItem lineItem) {

@@ -17,3 +17,4 @@
 11. 将每个订单item的税值计算抽取为公共方法lineItem.totalAmount() * TAX_RATE; -> calculateOrderItemSalesTax
 12. 将每个订单item的金额计算抽取为公共方法calculateOrderItemAmount()
 13. 将打印体抽取为公共方法getReceiptBody()
+14. naming将totSalesTx 和 tot修改为 totalSalesTax 和 TotalAmount
