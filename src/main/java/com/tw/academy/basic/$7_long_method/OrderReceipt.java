@@ -12,6 +12,8 @@ public class OrderReceipt {
     private final String PRINT_HEADER_STRING = "======Printing Orders======\n";
     private final String SALES_TAX_STRING = "Sales Tax";
     private final String TOTAL_AMOUNT_STRING = "Total Amount";
+    private final char SEPARATOR = '\t';
+    private final char LINE_RETURN = '\n';
 
     private Order order;
 
@@ -37,22 +39,22 @@ public class OrderReceipt {
     }
 
     private StringBuilder getTotalAmount(StringBuilder orderReceiptContent, double tot) {
-        return orderReceiptContent.append(TOTAL_AMOUNT_STRING).append('\t').append(tot);
+        return orderReceiptContent.append(TOTAL_AMOUNT_STRING).append(SEPARATOR).append(tot);
     }
 
     private StringBuilder getReceiptTotSalesTx(StringBuilder orderReceiptContent, double totSalesTx) {
-        return orderReceiptContent.append(SALES_TAX_STRING).append('\t').append(totSalesTx);
+        return orderReceiptContent.append(SALES_TAX_STRING).append(SEPARATOR).append(totSalesTx);
     }
 
     private void getOrderItemContent(StringBuilder orderReceiptContent, LineItem lineItem) {
         orderReceiptContent.append(lineItem.getDescription());
-        orderReceiptContent.append('\t');
+        orderReceiptContent.append(SEPARATOR);
         orderReceiptContent.append(lineItem.getPrice());
-        orderReceiptContent.append('\t');
+        orderReceiptContent.append(SEPARATOR);
         orderReceiptContent.append(lineItem.getQuantity());
-        orderReceiptContent.append('\t');
+        orderReceiptContent.append(SEPARATOR);
         orderReceiptContent.append(lineItem.totalAmount());
-        orderReceiptContent.append('\n');
+        orderReceiptContent.append(LINE_RETURN);
     }
 
     private void getReceiptHeader(StringBuilder orderReceiptContent) {
