@@ -7,11 +7,11 @@ public class Order {
     private String buyerPhoneNumber;
     private String buyerAddress;
 
-    public Order(int orderNumber, String buyerName, String buyerPhoneNumber, String buyerAddress) {
+    public Order(int orderNumber, buyer buyer) {
         this.orderNumber = orderNumber;
-        this.buyerName = buyerName;
-        this.buyerPhoneNumber = buyerPhoneNumber;
-        this.buyerAddress = buyerAddress;
+        this.buyerName = buyer.getBuyerName();
+        this.buyerPhoneNumber = buyer.getBuyerPhoneNumber();
+        this.buyerAddress = buyer.getBuyerAddress();
     }
 
     public String confirm(){
