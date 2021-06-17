@@ -1,11 +1,11 @@
 package com.tw.academy.basic.$5_data_clumps;
 
-public class buyer {
+public class Buyer {
     private final String buyerName;
     private final String buyerPhoneNumber;
     private final String buyerAddress;
 
-    public buyer(String buyerName, String buyerPhoneNumber, String buyerAddress) {
+    public Buyer(String buyerName, String buyerPhoneNumber, String buyerAddress) {
         this.buyerName = buyerName;
         this.buyerPhoneNumber = buyerPhoneNumber;
         this.buyerAddress = buyerAddress;
