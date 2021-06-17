@@ -21,24 +21,24 @@ public class OrderReceipt {
 
     //todo: rename -- Tom
     public String printReceipt() {
-        StringBuilder output = new StringBuilder();
+        StringBuilder orderReceiptContent = new StringBuilder();
 
-        output.append(PRINT_HEADER_STRING);
+        orderReceiptContent.append(PRINT_HEADER_STRING);
 
-        output.append(order.getCustomerName());
-        output.append(order.getCustomerAddress());
+        orderReceiptContent.append(order.getCustomerName());
+        orderReceiptContent.append(order.getCustomerAddress());
 
         double totSalesTx = 0d;
         double tot = 0d;
         for (LineItem lineItem : order.getLineItems()) {
-            output.append(lineItem.getDescription());
-            output.append('\t');
-            output.append(lineItem.getPrice());
-            output.append('\t');
-            output.append(lineItem.getQuantity());
-            output.append('\t');
-            output.append(lineItem.totalAmount());
-            output.append('\n');
+            orderReceiptContent.append(lineItem.getDescription());
+            orderReceiptContent.append('\t');
+            orderReceiptContent.append(lineItem.getPrice());
+            orderReceiptContent.append('\t');
+            orderReceiptContent.append(lineItem.getQuantity());
+            orderReceiptContent.append('\t');
+            orderReceiptContent.append(lineItem.totalAmount());
+            orderReceiptContent.append('\n');
 
             double salesTax = lineItem.totalAmount() * TAX_RATE;
             totSalesTx += salesTax;
@@ -46,9 +46,9 @@ public class OrderReceipt {
             tot += lineItem.totalAmount() + salesTax;
         }
 
-        output.append(SALES_TAX_STRING).append('\t').append(totSalesTx);
+        orderReceiptContent.append(SALES_TAX_STRING).append('\t').append(totSalesTx);
 
-        output.append(TOTAL_AMOUNT_STRING).append('\t').append(tot);
-        return output.toString();
+        orderReceiptContent.append(TOTAL_AMOUNT_STRING).append('\t').append(tot);
+        return orderReceiptContent.toString();
     }
 }
