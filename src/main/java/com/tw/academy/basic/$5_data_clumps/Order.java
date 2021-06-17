@@ -3,17 +3,18 @@ package com.tw.academy.basic.$5_data_clumps;
 public class Order {
 
     private int orderNumber;
+    private Buyer buyer;
 
     public String getBuyerName() {
-        return buyerName;
+        return buyer.getBuyerName();
     }
 
     public String getBuyerPhoneNumber() {
-        return buyerPhoneNumber;
+        return buyer.getBuyerPhoneNumber();
     }
 
     public String getBuyerAddress() {
-        return buyerAddress;
+        return buyer.getBuyerAddress();
     }
 
     private String buyerName;
@@ -22,6 +23,8 @@ public class Order {
 
     public Order(int orderNumber, String buyerName, String buyerPhoneNumber, String buyerAddress) {
         this.orderNumber = orderNumber;
+
+        this.buyer = new Buyer(buyerName,buyerPhoneNumber,buyerAddress);
 
         this.buyerName = buyerName;
         this.buyerPhoneNumber = buyerPhoneNumber;
