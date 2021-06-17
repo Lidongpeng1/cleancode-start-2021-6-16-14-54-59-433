@@ -16,12 +16,21 @@ public class DeliveryManager {
     }
 
     public DeliverCenter allocate(){
-        if (to.getProvince().equals(from.getProvince()) && to.getCity().equals(from.getCity())){
+        if (isEqualsProvince() && isEqualsCity()){
             return DeliverCenter.LOCAL;
         }
-        if (to.getProvince().equals(from.getProvince())) {
+        if (isEqualsProvince()) {
             return DeliverCenter.PROVINCE;
         }
         return DeliverCenter.FOREIGN;
     }
+
+    private boolean isEqualsCity() {
+        return to.getCity().equals(from.getCity());
+    }
+
+    private boolean isEqualsProvince() {
+        return to.getProvince().equals(from.getProvince());
+    }
+
 }
