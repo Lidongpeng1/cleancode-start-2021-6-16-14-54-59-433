@@ -9,3 +9,4 @@
     private final String TOTAL_AMOUNT_STRING = "Total Amount";
 5. 输出内容String命名不规范 line 24
     从output rename为 orderReceiptContent
+6. 将打印头部抽取为公共方法getReceiptHeader() Line 27  -->  52~56

@@ -23,10 +23,7 @@ public class OrderReceipt {
     public String printReceipt() {
         StringBuilder orderReceiptContent = new StringBuilder();
 
-        orderReceiptContent.append(PRINT_HEADER_STRING);
-
-        orderReceiptContent.append(order.getCustomerName());
-        orderReceiptContent.append(order.getCustomerAddress());
+        getReceiptHeader(orderReceiptContent);
 
         double totSalesTx = 0d;
         double tot = 0d;
@@ -50,5 +47,11 @@ public class OrderReceipt {
 
         orderReceiptContent.append(TOTAL_AMOUNT_STRING).append('\t').append(tot);
         return orderReceiptContent.toString();
+    }
+
+    private void getReceiptHeader(StringBuilder orderReceiptContent) {
+        orderReceiptContent.append(PRINT_HEADER_STRING);
+        orderReceiptContent.append(order.getCustomerName());
+        orderReceiptContent.append(order.getCustomerAddress());
     }
 }
