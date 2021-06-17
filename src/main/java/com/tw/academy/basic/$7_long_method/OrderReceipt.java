@@ -22,31 +22,29 @@ public class OrderReceipt {
     //todo: rename -- Tom
     public String printReceipt() {
         StringBuilder orderReceiptContent = new StringBuilder();
-
         getReceiptHeader(orderReceiptContent);
-
         double totSalesTx = 0d;
         double tot = 0d;
         for (LineItem lineItem : order.getLineItems()) {
-            orderReceiptContent.append(lineItem.getDescription());
-            orderReceiptContent.append('\t');
-            orderReceiptContent.append(lineItem.getPrice());
-            orderReceiptContent.append('\t');
-            orderReceiptContent.append(lineItem.getQuantity());
-            orderReceiptContent.append('\t');
-            orderReceiptContent.append(lineItem.totalAmount());
-            orderReceiptContent.append('\n');
-
+            getOrderItemContent(orderReceiptContent, lineItem);
             double salesTax = lineItem.totalAmount() * TAX_RATE;
             totSalesTx += salesTax;
-
             tot += lineItem.totalAmount() + salesTax;
         }
-
         orderReceiptContent.append(SALES_TAX_STRING).append('\t').append(totSalesTx);
-
         orderReceiptContent.append(TOTAL_AMOUNT_STRING).append('\t').append(tot);
         return orderReceiptContent.toString();
+    }
+
+    private void getOrderItemContent(StringBuilder orderReceiptContent, LineItem lineItem) {
+        orderReceiptContent.append(lineItem.getDescription());
+        orderReceiptContent.append('\t');
+        orderReceiptContent.append(lineItem.getPrice());
+        orderReceiptContent.append('\t');
+        orderReceiptContent.append(lineItem.getQuantity());
+        orderReceiptContent.append('\t');
+        orderReceiptContent.append(lineItem.totalAmount());
+        orderReceiptContent.append('\n');
     }
 
     private void getReceiptHeader(StringBuilder orderReceiptContent) {
