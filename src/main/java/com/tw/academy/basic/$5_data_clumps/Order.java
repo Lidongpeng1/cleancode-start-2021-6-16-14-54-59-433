@@ -32,8 +32,7 @@ public class Order {
     }
 
     public String confirm(){
-        return String.format("Please confirm buyer information: buyer name is %s, " +
-                "buyer phone number is %s and buyer address is %s.", getBuyerName(), getBuyerPhoneNumber(), getBuyerAddress());
+        return buyer.confirm();
     }
 }
 

@@ -22,4 +22,9 @@ public class Buyer {
         this.buyerPhoneNumber = buyerPhoneNumber;
         this.buyerAddress = buyerAddress;
     }
+
+    public String confirm(){
+        return String.format("Please confirm buyer information: buyer name is %s, " +
+                "buyer phone number is %s and buyer address is %s.", getBuyerName(), getBuyerPhoneNumber(), getBuyerAddress());
+    }
 }
