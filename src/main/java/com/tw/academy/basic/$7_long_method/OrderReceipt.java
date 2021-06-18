@@ -22,7 +22,7 @@ public class OrderReceipt {
     }
 
     //todo: rename -- Tom
-    public String printReceipt() {
+    public String getReceiptContent() {
         StringBuilder orderReceiptContent = new StringBuilder();
         getReceiptHeader(orderReceiptContent);
         getReceiptBody(orderReceiptContent);

@@ -18,3 +18,4 @@
 12. 将每个订单item的金额计算抽取为公共方法calculateOrderItemAmount()
 13. 将打印体抽取为公共方法getReceiptBody()
 14. naming将totSalesTx 和 tot修改为 totalSalesTax 和 TotalAmount
+15. 修改printReceipt方法名，修改为getReceiptContent 更加表意
